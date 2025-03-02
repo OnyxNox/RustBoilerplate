@@ -14,4 +14,4 @@ Get started by opening the [`.vscode/rust_boilerplate.code-workspace`](../.vscod
 
 ## Work Items
 
-Instead of keeping work items in an external application, they are kept as [Markdown](https://en.wikipedia.org/wiki/Markdown) files that describe features, technical debt and bugs. These files are then moved around amount the work item directories to keep track of their progress.
+Instead of keeping work items in an external application, they are kept as [Markdown](https://en.wikipedia.org/wiki/Markdown) files that describe features, technical debt and bugs in detail. These files are then moved around directories to keep track of their progress.
