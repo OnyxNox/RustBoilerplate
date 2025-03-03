@@ -11,6 +11,10 @@ Run the [xtask](https://github.com/matklad/cargo-xtask) initialization script in
 cargo xtask init
 ```
 
+### Feature Flags
+
+- `--remove-xtask` - Removes xtask and workspace files and references.
+
 ## Documents
 
 1. [Design](./wiki/design.md)

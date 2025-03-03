@@ -2,7 +2,7 @@ use std::{
     env,
     fmt::Display,
     fs::{self, File},
-    io::Read,
+    io::{ErrorKind, Read},
     path::Path,
 };
 
@@ -13,6 +13,31 @@ pub fn init() {
     let args = env::args().skip(1).collect::<Vec<_>>();
 
     replace_files_project_name();
+
+    if args.contains(&"--remove-xtask".into()) {
+        fs::rename("./app/src", "./src").unwrap();
+        fs::rename("./app/Cargo.toml", "./Cargo.toml").unwrap();
+
+        remove_directory("./.cargo");
+        remove_directory("./app");
+        remove_directory("./xtask");
+    }
+}
+
+/// Deletes the directory.
+fn remove_directory<P>(dir_path: P)
+where
+    P: AsRef<Path> + Display,
+{
+    fs::remove_dir_all(&dir_path)
+        .or_else(|error| {
+            if error.kind() == ErrorKind::NotFound {
+                Ok(())
+            } else {
+                Err(error)
+            }
+        })
+        .expect(&format!("Failed to delete '{}' directory.", &dir_path));
 }
 
 /// Replaces the project name in the repository's files and renames the code-workspace file.
