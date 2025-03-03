@@ -38,6 +38,12 @@ pub fn init() {
         )],
     );
 
+    fs::rename(
+        ".vscode/rust_boilerplate.code-workspace",
+        &format!(".vscode/{}.code-workspace", project_name),
+    )
+    .expect("Failed to rename code-workspace file.");
+
     replace_file_contents(
         "./ReadMe.md",
         vec![(
