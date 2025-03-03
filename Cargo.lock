@@ -5,3 +5,7 @@ version = 3
 [[package]]
 name = "rust_boilerplate"
 version = "0.1.0"
+
+[[package]]
+name = "xtask"
+version = "0.1.0"
