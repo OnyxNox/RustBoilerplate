@@ -5,6 +5,7 @@ use std::env;
 
 use crate::init::init;
 
+/// Binary entry point.
 fn main() {
     let task_name = env::args()
         .nth(1)

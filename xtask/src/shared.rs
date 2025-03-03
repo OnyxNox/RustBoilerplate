@@ -1,6 +1,9 @@
+/// String extension methods.
 pub trait StringExtensions {
+    /// Converts string from camel case to snake case.
     fn camel_to_snake_case(&self) -> String;
 
+    /// Converts string from snake case to title case.
     fn snake_to_title_case(&self) -> String;
 }
 
